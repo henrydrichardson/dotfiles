@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'saltstack/salt-vim'
+Plugin 'jelera/vim-javascript-syntax'
 
 call vundle#end()            
 filetype plugin indent on    
