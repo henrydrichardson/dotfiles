@@ -1,7 +1,5 @@
 set nocompatible              
-filetype off                  
-
-
+set number
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -11,7 +9,8 @@ Plugin 'saltstack/salt-vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'hashivim/vim-vagrant'
 
-call vundle#end()            
+call vundle#end()
+let g:netrw_liststyle=3
 filetype plugin indent on
 color elflord
 syntax on
