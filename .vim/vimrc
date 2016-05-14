@@ -13,6 +13,6 @@ Plugin 'hashivim/vim-vagrant'
 
 call vundle#end()            
 filetype plugin indent on
-
+color elflord
 syntax on
 
