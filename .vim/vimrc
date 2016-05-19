@@ -1,5 +1,6 @@
 set nocompatible              
 set number
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -11,7 +12,8 @@ Plugin 'hashivim/vim-vagrant'
 
 call vundle#end()
 let g:netrw_liststyle=3
-filetype plugin indent on
 color elflord
+filetype plugin indent on
 syntax on
 
+au BufRead,BufNewFile *.cf set filetype=pfmain
