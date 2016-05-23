@@ -8,6 +8,7 @@
 " Name/Color  HEX       16/8     TERMCOL    XTERM/HEX  L*A*B       sRGB          HSB
 " ----------  -------   -----    --------   ---------- ----------  ----------    ---------
 " Cyan		  #2aa198   6/6      cyan       37 #00afaf 60 -35 -05  42 161 152    175 74 63
+" violet      #6c71c4   13/5     brmagenta  61 #5f5faf 50  15 -45  108 113 196 237  45  77
 hi clear
 if exists("syntax_on")
   syntax reset
@@ -15,7 +16,7 @@ endif
 let g:colors_name = "elfpriest"
 hi Normal		guifg=cyan			guibg=black
 hi Comment	term=bold		ctermfg=37	guifg=#268bd2
-hi Constant	term=underline	ctermfg=Magenta		guifg=Magenta
+hi Constant	term=underline	ctermfg=61		guifg=Magenta
 hi Special	term=bold		ctermfg=DarkMagenta	guifg=Red
 hi Identifier term=underline	cterm=bold			ctermfg=Cyan guifg=#40ffff
 hi Statement term=bold		ctermfg=100 gui=bold	guifg=#aa4444
