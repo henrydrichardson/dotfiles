@@ -19,9 +19,9 @@ hi Comment	term=bold		ctermfg=37	guifg=#268bd2
 hi Constant	term=underline	ctermfg=61		guifg=Magenta
 hi Special	term=bold		ctermfg=DarkMagenta	guifg=Red
 hi Identifier term=underline	cterm=bold			ctermfg=Cyan guifg=#40ffff
-hi Statement term=bold		ctermfg=100 gui=bold	guifg=#aa4444
+hi Statement term=bold		ctermfg=136 gui=bold	guifg=#aa4444
 hi PreProc	term=underline	ctermfg=LightBlue	guifg=#ff80ff
-hi Type	term=underline		ctermfg=LightGreen	guifg=#60ff60 gui=bold
+hi Type	term=underline		ctermfg=85	guifg=#60ff60 gui=bold
 hi Function	term=bold		ctermfg=Red guifg=White
 hi Repeat	term=underline	ctermfg=White		guifg=white
 hi Operator				ctermfg=Red			guifg=Red
