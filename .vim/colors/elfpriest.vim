@@ -28,6 +28,7 @@ hi Operator				ctermfg=Red			guifg=Red
 hi Ignore				ctermfg=black		guifg=bg
 hi Error	term=reverse ctermbg=Red ctermfg=White guibg=Red guifg=White
 hi Todo	term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
+hi LineNr ctermfg=DarkGrey
 
 " Common groups that link to default highlighting.
 " You can specify other highlighting easily.
