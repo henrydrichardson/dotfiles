@@ -4,8 +4,11 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" Functionality Plugins.
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+
+" Syntax Plugins.
 Plugin 'saltstack/salt-vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'hashivim/vim-vagrant'
