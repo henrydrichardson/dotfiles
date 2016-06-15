@@ -9,7 +9,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 " Syntax Plugins.
-Plugin 'scrooloose/syntastic'
 Plugin 'saltstack/salt-vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'hashivim/vim-vagrant'

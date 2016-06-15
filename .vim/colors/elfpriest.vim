@@ -53,3 +53,11 @@ hi link SpecialChar	Special
 hi link Delimiter	Special
 hi link SpecialComment Special
 hi link Debug		Special
+
+" Diff Colors
+highlight DiffAdd cterm=bold ctermfg=10 ctermbg=17
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17
+highlight DiffText cterm=bold ctermfg=10 ctermbg=88
+
+
