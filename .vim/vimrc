@@ -16,6 +16,7 @@ Plugin 'hashivim/vim-vagrant'
 
 call vundle#end()
 let g:netrw_liststyle=3
+let g:netrw_keepdir=0
 color elfpriest
 filetype plugin indent on
 syntax on
