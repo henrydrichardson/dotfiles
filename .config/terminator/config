@@ -2,6 +2,11 @@
   borderless = True
   geometry_hinting = False
 [keybindings]
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
+  go_up = <Alt>k
+  layout_launcher = disabled
 [layouts]
   [[default]]
     [[[child1]]]
