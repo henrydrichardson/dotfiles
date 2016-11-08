@@ -30,3 +30,4 @@
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
+    scrollback_lines = 5000
