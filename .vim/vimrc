@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'w0rp/ale'
 " Syntax Plugins.
 Plugin 'saltstack/salt-vim'
 Plugin 'jelera/vim-javascript-syntax'
