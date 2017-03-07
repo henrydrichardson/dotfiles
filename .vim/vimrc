@@ -1,7 +1,7 @@
 set nocompatible              
 set number
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim,~/.vim/bundle/groovyindent-unix/
 call vundle#begin()
 
 " Functionality Plugins.
@@ -13,6 +13,8 @@ Plugin 'w0rp/ale'
 Plugin 'saltstack/salt-vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'hashivim/vim-vagrant'
+" Indentation Plugins
+Plugin 'vim-scripts/groovyindent-unix'
 
 call vundle#end()
 let g:netrw_liststyle=3
