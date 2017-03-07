@@ -22,5 +22,6 @@ filetype plugin indent on
 syntax on
 
 au BufRead,BufNewFile *.cf set filetype=pfmain
+au BufRead,BufNewFile Jenkinsfile set filetype=groovy
 au BufRead,BufNewFile *sshd_config* set filetype=sshdconfig
 autocmd FileType netrw setl bufhidden=delete
