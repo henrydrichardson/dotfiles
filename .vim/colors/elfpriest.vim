@@ -29,6 +29,7 @@ hi Ignore				ctermfg=black		guifg=bg
 hi Error	term=reverse ctermbg=Red ctermfg=White guibg=Red guifg=White
 hi Todo	term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
 hi LineNr ctermfg=DarkGrey
+hi SpecialKey ctermfg=White guifg=Red
 
 " Common groups that link to default highlighting.
 " You can specify other highlighting easily.

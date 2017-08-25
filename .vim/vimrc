@@ -22,6 +22,10 @@ call vundle#end()
 let g:netrw_liststyle=3
 let g:netrw_keepdir=0
 color elfpriest
+
+"ListChars Options
+set listchars=trail:▮,tab:>-,eol:$
+
 filetype plugin indent on
 syntax on
 
