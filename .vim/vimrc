@@ -25,6 +25,7 @@ color elfpriest
 filetype plugin indent on
 syntax on
 
+au BufRead,BufNewFile *.jinja set filetype=jinja
 au BufRead,BufNewFile *.cf set filetype=pfmain
 au BufRead,BufNewFile Jenkinsfile set filetype=groovy tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 au BufRead,BufNewFile *sshd_config* set filetype=sshdconfig
