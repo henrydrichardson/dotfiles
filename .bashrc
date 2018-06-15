@@ -21,4 +21,4 @@ else
 	wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh
 	source ~/.git-prompt.sh
 fi
-export PS1='\u@\h \[\e[38;5;6m\]\W\[\e[38;5;124m\] $(__git_ps1 " (%s)")\[\e[0m\]\$ '
+export PS1='\u@\h \[\e[38;5;6m\]\W\[\e[38;5;124m\]$(__git_ps1 " (%s)")\[\e[0m\]\$ '
