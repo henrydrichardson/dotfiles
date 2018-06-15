@@ -2,6 +2,7 @@ set nocompatible
 set exrc
 set secure
 set number
+set noerrorbells
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim,~/.vim/bundle/groovyindent-unix/
 call vundle#begin()
