@@ -28,3 +28,6 @@ export PS1='\u@\h \[\e[38;5;6m\]\W\[\e[38;5;124m\]$(__git_ps1 " (%s)")\[\e[0m\]\
 # Setting prefered editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
+
+export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
