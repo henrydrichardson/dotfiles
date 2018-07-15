@@ -5,6 +5,8 @@ if [ -f /etc/bashrc ]; then
 fi
 # User specific aliases and functions
 
+set bell-style visual
+
 # Git Completion and Prompt Setup. 
 if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
 	source /usr/share/git-core/contrib/completion/git-prompt.sh
@@ -22,3 +24,7 @@ else
 	source ~/.git-prompt.sh
 fi
 export PS1='\u@\h \[\e[38;5;6m\]\W\[\e[38;5;124m\]$(__git_ps1 " (%s)")\[\e[0m\]\$ '
+
+# Setting prefered editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
