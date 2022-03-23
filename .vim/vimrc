@@ -16,6 +16,7 @@ Plugin 'dense-analysis/ale'
 Plugin 'saltstack/salt-vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'hashivim/vim-vagrant'
+Plugin 'hashivim/vim-terraform'
 " Indentation Plugins
 Plugin 'vim-scripts/groovyindent-unix'
 
@@ -29,6 +30,8 @@ set listchars=trail:▮,tab:>-,eol:$
 
 filetype plugin indent on
 syntax on
+
+au Filetype sh set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 au BufRead,BufNewFile *.jinja set filetype=jinja
 au BufRead,BufNewFile *.cf set filetype=pfmain
