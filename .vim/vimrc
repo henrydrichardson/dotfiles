@@ -40,6 +40,15 @@ au BufRead,BufNewFile Jenkinsfile set filetype=groovy tabstop=4 softtabstop=4 sh
 au BufRead,BufNewFile *sshd_config* set filetype=sshdconfig
 autocmd FileType netrw setl bufhidden=delete
 
+"Define Global Fixers for ALE
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'terraform': ['terraform'],
+\}
+
+"Define Global Linter Messages for ALE
+let g:ale_echo_msg_format = '%linter%: %s'
+
 "If ripgrep is found on the system
 if executable('rg')
 	set grepprg=rg\ --color=never
