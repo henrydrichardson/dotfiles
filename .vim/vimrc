@@ -44,6 +44,11 @@ autocmd FileType netrw setl bufhidden=delete
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'terraform': ['terraform'],
+\   'python': [
+\	'add_blank_lines_for_python_control_statements',
+\	'autoflake',
+\	'yapf',
+\	],
 \}
 
 "Define Global Linter Messages for ALE
