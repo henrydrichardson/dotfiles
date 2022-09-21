@@ -51,6 +51,13 @@ let g:ale_fixers = {
 \	],
 \}
 
+let g:ale_linters_ignore = {
+\ 'python': ['pylint'],
+\}
+
+"Custom Maping to ALEFix
+map <F4> :ALEFix<CR>
+
 "Define Global Linter Messages for ALE
 let g:ale_echo_msg_format = '%linter%: %s'
 
