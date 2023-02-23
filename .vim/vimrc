@@ -48,7 +48,9 @@ let g:ale_fixers = {
 \	'add_blank_lines_for_python_control_statements',
 \	'autoflake',
 \	'yapf',
+\	'isort',
 \	],
+\   'sh': ['shfmt'],
 \}
 
 let g:ale_linters_ignore = {
@@ -57,6 +59,7 @@ let g:ale_linters_ignore = {
 
 "Custom Maping to ALEFix
 map <F4> :ALEFix<CR>
+map <F3> :ALENext<CR>
 
 "Define Global Linter Messages for ALE
 let g:ale_echo_msg_format = '%linter%: %s'
