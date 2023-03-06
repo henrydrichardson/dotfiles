@@ -1,4 +1,5 @@
 
+Brewfile.lock.json
 .vim/autoload/
 .vim/plugged/
 .vim/.netrwhist
