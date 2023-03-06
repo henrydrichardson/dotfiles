@@ -3,24 +3,30 @@ set exrc
 set secure
 set number
 set noerrorbells
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim,~/.vim/bundle/groovyindent-unix/
-call vundle#begin()
+
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+call plug#begin()
 
 " Functionality Plugins.
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'dense-analysis/ale'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'dense-analysis/ale'
 " Syntax Plugins.
-Plugin 'saltstack/salt-vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'hashivim/vim-vagrant'
-Plugin 'hashivim/vim-terraform'
+Plug 'hashivim/vim-vagrant'
+Plug 'hashivim/vim-terraform'
 " Indentation Plugins
-Plugin 'vim-scripts/groovyindent-unix'
+Plug 'vim-scripts/groovyindent-unix'
 
-call vundle#end()
+call plug#end()
+
+
 let g:netrw_liststyle=3
 let g:netrw_keepdir=0
 color elfpriest
@@ -28,16 +34,9 @@ color elfpriest
 "ListChars Options
 set listchars=trail:▮,tab:>-,eol:$
 
-filetype plugin indent on
-syntax on
-
 au Filetype sh set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
-au BufRead,BufNewFile *.jinja set filetype=jinja
-au BufRead,BufNewFile *.cf set filetype=pfmain
 au BufRead,BufNewFile *.tf set filetype=terraform syntax=tf
-au BufRead,BufNewFile Jenkinsfile set filetype=groovy tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-au BufRead,BufNewFile *sshd_config* set filetype=sshdconfig
 autocmd FileType netrw setl bufhidden=delete
 
 "Define Global Fixers for ALE
