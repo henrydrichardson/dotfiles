@@ -64,6 +64,8 @@ map <F3> :ALENext<CR>
 "Define Global Linter Messages for ALE
 let g:ale_echo_msg_format = '%linter%: %s'
 
+let g:ale_virtualtext_cursor = 'disabled'
+
 "If ripgrep is found on the system
 if executable('rg')
 	set grepprg=rg\ --color=never
