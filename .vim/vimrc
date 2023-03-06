@@ -16,6 +16,7 @@ call plug#begin()
 
 " Functionality Plugins.
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
