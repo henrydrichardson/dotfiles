@@ -15,7 +15,6 @@ endif
 call plug#begin()
 
 " Functionality Plugins.
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
@@ -57,6 +56,9 @@ let g:ale_fixers = {
 let g:ale_linters_ignore = {
 \ 'python': ['pylint'],
 \}
+
+"Custom Mapping to FZF
+nnoremap <silent> <C-p> :FZF<CR>
 
 "Custom Maping to ALEFix
 map <F4> :ALEFix<CR>
