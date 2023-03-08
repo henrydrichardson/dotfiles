@@ -33,8 +33,6 @@ color elfpriest
 "ListChars Options
 set listchars=trail:▮,tab:>-,eol:$
 
-au Filetype sh set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-
 au BufRead,BufNewFile *.tf set filetype=terraform syntax=tf
 autocmd FileType netrw setl bufhidden=delete
 
