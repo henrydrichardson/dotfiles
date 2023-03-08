@@ -22,8 +22,6 @@ Plug 'vim-airline/vim-airline'
 " Syntax Plugins.
 Plug 'hashivim/vim-vagrant'
 Plug 'hashivim/vim-terraform'
-" Indentation Plugins
-Plug 'vim-scripts/groovyindent-unix'
 
 call plug#end()
 
