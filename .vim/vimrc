@@ -56,10 +56,3 @@ map <F3> :ALENext<CR>
 let g:ale_echo_msg_format = '%linter%: %s'
 
 let g:ale_virtualtext_cursor = 'disabled'
-
-"If ripgrep is found on the system
-if executable('rg')
-	set grepprg=rg\ --color=never
-else
-	echom "You can optimize your vim searchs by installing ripgrep!"
-endif
