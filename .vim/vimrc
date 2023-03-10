@@ -43,18 +43,6 @@ autocmd FileType netrw setl bufhidden=delete
 "Define Global Fixers for ALE
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'terraform': ['terraform'],
-\   'python': [
-\	'add_blank_lines_for_python_control_statements',
-\	'autoflake',
-\	'yapf',
-\	'isort',
-\	],
-\   'sh': ['shfmt'],
-\}
-
-let g:ale_linters_ignore = {
-\ 'python': ['pylint'],
 \}
 
 "Custom Mapping to FZF
