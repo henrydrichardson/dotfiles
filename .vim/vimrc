@@ -4,11 +4,17 @@ set secure
 set number
 set noerrorbells
 
+augroup customAutoCommands
+	au!
+	au BufRead,BufNewFile *.tf set filetype=terraform syntax=tf
+	autocmd FileType netrw setl bufhidden=delete
+augroup END
+
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd customAutoCommands VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 
@@ -34,8 +40,11 @@ color elfpriest
 "ListChars Options
 set listchars=trail:▮,tab:>-,eol:$
 
-au BufRead,BufNewFile *.tf set filetype=terraform syntax=tf
-autocmd FileType netrw setl bufhidden=delete
+augroup customAutoCommands
+	au!
+	au BufRead,BufNewFile *.tf set filetype=terraform syntax=tf
+	autocmd FileType netrw setl bufhidden=delete
+augroup END
 
 "Define Global Fixers for ALE
 let g:ale_fixers = {
@@ -53,3 +62,6 @@ map <F3> :ALENext<CR>
 let g:ale_echo_msg_format = '%linter%: %s'
 
 let g:ale_virtualtext_cursor = 'disabled'
+
+"Airline Configuration
+let g:airline#extensions#ale#enabled = 1
