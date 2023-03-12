@@ -22,6 +22,8 @@ call plug#begin()
 
 " Functionality Plugins.
 Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'nanotee/zoxide.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
