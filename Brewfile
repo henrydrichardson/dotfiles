@@ -4,6 +4,8 @@ brew 'fzf'
 brew 'exa'
 brew 'glow'
 brew 'zoxide'
+brew 'dust'
+brew 'duf'
 
 #Linters
 brew 'redpen'
