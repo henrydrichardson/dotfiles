@@ -6,6 +6,7 @@ brew 'glow'
 brew 'zoxide'
 brew 'dust'
 brew 'duf'
+brew 'timg'
 
 #Linters
 brew 'redpen'
