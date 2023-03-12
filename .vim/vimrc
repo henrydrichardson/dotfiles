@@ -7,7 +7,6 @@ set noerrorbells
 augroup customAutoCommands
 	au!
 	au BufRead,BufNewFile *.tf set filetype=terraform syntax=tf
-	autocmd FileType netrw setl bufhidden=delete
 augroup END
 
 
@@ -28,25 +27,17 @@ Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern-hijack.vim'
 " Syntax Plugins.
 Plug 'hashivim/vim-vagrant'
 Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
-
-let g:netrw_liststyle=3
-let g:netrw_keepdir=0
 color elfpriest
 
 "ListChars Options
 set listchars=trail:▮,tab:>-,eol:$
-
-augroup customAutoCommands
-	au!
-	au BufRead,BufNewFile *.tf set filetype=terraform syntax=tf
-	autocmd FileType netrw setl bufhidden=delete
-augroup END
 
 "Define Global Fixers for ALE
 let g:ale_fixers = {
