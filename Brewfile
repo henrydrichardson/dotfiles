@@ -17,3 +17,11 @@ brew 'vint'
 brew 'bashate'
 brew 'bash-language-server'
 brew 'shellcheck'
+
+#Go Linters
+brew 'gopls'
+brew 'staticcheck'
+
+#Python Linters
+brew 'yapf'
+brew 'isort'
