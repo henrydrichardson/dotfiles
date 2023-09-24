@@ -12,3 +12,8 @@ brew 'timg'
 brew 'redpen'
 brew 'vale'
 brew 'vint'
+
+#Bash Linters
+brew 'bashate'
+brew 'bash-language-server'
+brew 'shellcheck'
