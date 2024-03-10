@@ -11,6 +11,7 @@ plugins=(
 	ripgrep
 	fzf
 	pyenv
+	minikube
 	kubectl
 )
 
