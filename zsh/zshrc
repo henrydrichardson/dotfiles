@@ -1,5 +1,7 @@
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+eval "$(pyenv init --path)"
+
 plugins=(
 	git
 	git-prompt
@@ -8,6 +10,7 @@ plugins=(
 	chruby
 	ripgrep
 	fzf
+	pyenv
 )
 
 # Update Settings
