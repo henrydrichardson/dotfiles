@@ -3,17 +3,17 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 eval "$(pyenv init --path)"
 
 plugins=(
+	aws
+	chruby
+	fzf
 	git
 	git-prompt
 	gitfast
-	aws
-	chruby
-	ripgrep
-	fzf
-	pyenv
-	minikube
-	kubectl
 	helm
+	kubectl
+	minikube
+	pyenv
+	ripgrep
 )
 
 # Update Settings
