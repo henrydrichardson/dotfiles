@@ -7,6 +7,8 @@ brew 'zoxide'
 brew 'dust'
 brew 'duf'
 brew 'timg'
+brew 'jq'
+brew 'yh'
 
 #Linters
 brew 'redpen'
