@@ -13,6 +13,7 @@ plugins=(
 	pyenv
 	minikube
 	kubectl
+	helm
 )
 
 # Update Settings
