@@ -1,6 +1,6 @@
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-eval "$(pyenv init --path)"
+#eval "$(pyenv init --path)"
 
 plugins=(
 	aws
