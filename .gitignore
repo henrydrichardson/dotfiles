@@ -3,3 +3,8 @@ Brewfile.lock.json
 .vim/autoload/
 .vim/plugged/
 .vim/.netrwhist
+
+# Ignore vim temporary files:
+*~
+*.swp
+*.swo
