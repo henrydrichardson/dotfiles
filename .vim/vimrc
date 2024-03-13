@@ -4,6 +4,8 @@ set secure
 set number
 set noerrorbells
 
+set backspace=indent,eol,start
+
 augroup customAutoCommands
 	au!
 	au BufRead,BufNewFile *.tf set filetype=terraform syntax=tf
