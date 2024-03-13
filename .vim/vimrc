@@ -36,6 +36,8 @@ call plug#end()
 
 color elfpriest
 
+set scrolloff=10
+
 "ListChars Options
 set listchars=trail:▮,tab:>-,eol:$
 
