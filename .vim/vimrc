@@ -65,6 +65,7 @@ let g:ale_echo_msg_format = '%linter%: %s'
 let g:ale_virtualtext_cursor = 'disabled'
 
 let g:ale_completion_enabled = 1
+let g:ale_cache_executable_check_failures = 1
 
 "Airline Configuration
 let g:airline_theme = 'deus'
