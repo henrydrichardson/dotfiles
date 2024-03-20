@@ -32,6 +32,7 @@ Plug 'nanotee/zoxide.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/fern-hijack.vim'
 " Syntax Plugins.
@@ -65,6 +66,7 @@ let g:ale_virtualtext_cursor = 'disabled'
 let g:ale_completion_enabled = 1
 
 "Airline Configuration
+let g:airline_theme = 'deus'
 let g:airline#extensions#ale#enabled = 1
 let g:airline_experimental = 1
 let g:airline_detect_spell = 1
