@@ -16,6 +16,9 @@ plugins=(
 	ripgrep
 )
 
+# Switch ls to eza
+alias ls='eza $eza_params'
+
 # Update Settings
 zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 7
