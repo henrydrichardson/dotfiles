@@ -1,7 +1,7 @@
 brew 'rg'
 brew 'bat'
 brew 'fzf'
-brew 'exa'
+brew 'eza'
 brew 'glow'
 brew 'zoxide'
 brew 'dust'
