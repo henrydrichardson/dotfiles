@@ -9,6 +9,7 @@ brew 'duf'
 brew 'timg'
 brew 'jq'
 brew 'yh'
+brew 'vim'
 
 #Linters
 brew 'redpen'
