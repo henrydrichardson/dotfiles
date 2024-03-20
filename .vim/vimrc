@@ -52,6 +52,11 @@ set listchars=trail:▮,tab:>-,eol:$
 "Define Global Fixers for ALE
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'],}
 
+"Custom ALE Sign Symbols
+let g:ale_sign_error = ' 󱂑'
+let g:ale_sign_warning = ' 󰬄'
+let g:ale_sign_info = ' 󰙎'
+
 "Custom Mapping to FZF
 nnoremap <silent> <C-p> :FZF<CR>
 
