@@ -14,8 +14,8 @@ augroup END
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd customAutoCommands VimEnter * PlugInstall --sync | source $MYVIMRC
+	silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	autocmd customAutoCommands VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 
@@ -47,9 +47,7 @@ set scrolloff=10
 set listchars=trail:▮,tab:>-,eol:$
 
 "Define Global Fixers for ALE
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\}
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'],}
 
 "Custom Mapping to FZF
 nnoremap <silent> <C-p> :FZF<CR>
