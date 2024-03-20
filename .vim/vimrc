@@ -21,6 +21,9 @@ endif
 
 call plug#begin()
 
+" Color Scheme Plugin
+Plug 'EdenEast/nightfox.nvim'
+
 " Functionality Plugins.
 Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -36,7 +39,7 @@ Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
-color elfpriest
+colorscheme carbonfox
 
 set scrolloff=10
 
