@@ -12,6 +12,10 @@ plugins=(
 	minikube
 	pyenv
 	ripgrep
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+	you-should-use
+	zsh-bat
 )
 
 # Update Settings
