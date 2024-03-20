@@ -4,6 +4,7 @@ set exrc
 set secure
 set number
 set noerrorbells
+set noshowmode
 
 set backspace=indent,eol,start
 
