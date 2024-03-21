@@ -20,6 +20,15 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 	autocmd customAutoCommands VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+function! CarbonFoxHighlightOverrides() abort
+	highlight SpellBad       term=reverse ctermbg=124 gui=undercurl guisp=#ee5396
+endfunction
+
+augroup MyColors
+	autocmd!
+	autocmd ColorScheme carbonfox call CarbonFoxHighlightOverrides()
+augroup END
+
 
 call plug#begin()
 
@@ -62,7 +71,9 @@ nnoremap <silent> <C-p> :FZF<CR>
 
 "Custom Mapping to ALEFix
 map <F4> :ALEFix<CR>
-map <F3> :ALENext<CR>
+map <C-Space> <Plug>(ale_complete)
+map <C-j> <Plug>(ale_next_wrap)
+map <C-k> <Plug>(ale_previous_wrap)
 
 "Define Global Linter Messages for ALE
 let g:ale_echo_msg_format = '%linter%: %s'
