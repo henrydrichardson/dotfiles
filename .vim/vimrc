@@ -20,16 +20,6 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 	autocmd customAutoCommands VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-function! CarbonFoxHighlightOverrides() abort
-	highlight SpellBad       term=reverse ctermbg=124 gui=undercurl guisp=#ee5396
-endfunction
-
-augroup MyColors
-	autocmd!
-	autocmd ColorScheme carbonfox call CarbonFoxHighlightOverrides()
-augroup END
-
-
 call plug#begin()
 
 " Color Scheme Plugin
@@ -51,8 +41,6 @@ Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
-colorscheme carbonfox
-
 set scrolloff=10
 
 "ListChars Options
@@ -60,11 +48,6 @@ set listchars=trail:▮,tab:>-,eol:$
 
 "Define Global Fixers for ALE
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'],}
-
-"Custom ALE Sign Symbols
-let g:ale_sign_error = ' 󱂑'
-let g:ale_sign_warning = ' 󰬄'
-let g:ale_sign_info = ' 󰙎'
 
 "Custom Mapping to FZF
 nnoremap <silent> <C-p> :FZF<CR>
@@ -98,3 +81,16 @@ endif
 let g:airline_symbols.linenr = ' '
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.colnr = ':'
+
+function! CarbonFoxHighlightOverrides() abort
+	highlight SpellBad term=reverse ctermbg=124 gui=undercurl guisp=#ee5396
+	highlight SpellCap term=reverse ctermbg=184 gui=undercurl guisp=#be95ff
+	highlight ALEWarningSign term=standout ctermbg=100 ctermfg=184 guibg=#161616 guifg=#d7d700
+endfunction
+
+augroup MyColors
+	autocmd!
+	autocmd ColorScheme carbonfox call CarbonFoxHighlightOverrides()
+augroup END
+
+colorscheme carbonfox
