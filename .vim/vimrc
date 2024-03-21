@@ -85,7 +85,8 @@ let g:airline_symbols.colnr = ':'
 function! CarbonFoxHighlightOverrides() abort
 	highlight SpellBad term=reverse ctermbg=124 gui=undercurl guisp=#ee5396
 	highlight SpellCap term=reverse ctermbg=184 gui=undercurl guisp=#be95ff
-	highlight ALEWarningSign term=standout ctermbg=100 ctermfg=184 guibg=#161616 guifg=#d7d700
+	highlight ALEWarningSign term=standout ctermbg=100 ctermfg=180 guibg=#161616 guifg=#E5C07B
+	highlight ALEWarning term=standout ctermbg=179 ctermfg=178 guibg=#8a6c34
 endfunction
 
 augroup MyColors
