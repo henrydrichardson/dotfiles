@@ -2,3 +2,13 @@ Brewfile.lock.json
 .vim/autoload/
 .vim/plugged/
 .vim/.netrwhist
+.config/nvim/*.log
+.config/nvim/.repro
+.config/nvim/.tests
+.config/nvim/data
+.config/nvim/debug
+.config/nvim/doc/tags
+.config/nvim/foo.*
+.config/nvim/lazy-lock.json
+.config/nvim/lazyvim.json
+.config/nvim/tt.*
