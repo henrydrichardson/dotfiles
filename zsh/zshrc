@@ -3,6 +3,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
 	aws
 	chruby
+	docker
+	docker-compose
 	fzf
 	git
 	git-prompt
@@ -12,10 +14,10 @@ plugins=(
 	minikube
 	pyenv
 	ripgrep
-	zsh-autosuggestions
-	zsh-syntax-highlighting
 	you-should-use
+	zsh-autosuggestions
 	zsh-bat
+	zsh-syntax-highlighting
 )
 
 # Update Settings
