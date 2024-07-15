@@ -11,6 +11,7 @@ brew 'jq'
 brew 'yh'
 brew 'neovim'
 brew 'vim'
+brew 'lazygit'
 
 #Linters
 brew 'redpen'
