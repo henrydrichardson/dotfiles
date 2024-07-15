@@ -13,6 +13,9 @@ brew 'neovim'
 brew 'vim'
 brew 'lazygit'
 
+#Fonts
+brew 'font-meslo-lg-nerd-font'
+
 #Linters
 brew 'redpen'
 brew 'vale'
