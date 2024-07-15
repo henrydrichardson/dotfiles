@@ -20,6 +20,8 @@ plugins=(
 	zsh-syntax-highlighting
 )
 
+alias vim="nvim"
+
 # Update Settings
 zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 7
