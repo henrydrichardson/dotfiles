@@ -1,0 +1,14 @@
+gui:
+  skipDiscardChangeWarning: true
+  nerdFontsVersion: '3'
+  commitHashLength: 4
+  showDivergenceFromBaseBranch: arrowAndNumber
+  commitAuthorShortLength: 2
+git:
+  parseEmoji: true
+update:
+  method: background
+  days: 1
+refresher:
+  refreshInterval: 600
+  fetchInterval: 3600
