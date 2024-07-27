@@ -12,6 +12,7 @@ brew 'yh'
 brew 'neovim'
 brew 'vim'
 brew 'lazygit'
+brew 'zellij'
 
 #Fonts
 brew 'font-meslo-lg-nerd-font'
