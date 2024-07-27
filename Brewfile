@@ -19,7 +19,6 @@ brew 'font-meslo-lg-nerd-font'
 #Linters
 brew 'redpen'
 brew 'vale'
-brew 'vint'
 
 #Bash Linters
 brew 'bashate'
