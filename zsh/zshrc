@@ -15,7 +15,6 @@ plugins=(
 	kubectl
 	minikube
 	pyenv
-	ripgrep
 	you-should-use
 	zsh-autosuggestions
 	zsh-bat
