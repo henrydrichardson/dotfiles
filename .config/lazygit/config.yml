@@ -1,6 +1,5 @@
 gui:
   skipDiscardChangeWarning: true
-  nerdFontsVersion: '3'
   commitHashLength: 4
   showDivergenceFromBaseBranch: arrowAndNumber
   commitAuthorShortLength: 2

@@ -1,5 +1,7 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 
+export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/config.yml,$HOME/.local/share/nvim/lazy/tokyonight.nvim/extras/lazygit/tokyonight_moon.yml"
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
