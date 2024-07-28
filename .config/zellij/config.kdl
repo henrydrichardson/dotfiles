@@ -1,1 +1,28 @@
 theme "tokyo-night"
+
+plugins {
+    autolock location="https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zellij-autolock.wasm" {
+        triggers "nvim|vim"
+        watch_triggers "fzf|zoxide|atuin"
+        watch_interval "1.0"
+    }
+}
+
+keybinds {
+    normal {
+        bind "Enter" {
+            WriteChars "\u{000D}";
+            MessagePlugin "autolock" {};
+        }
+        bind "Ctrl r" {
+            WriteChars "\u{0012}";
+            MessagePlugin "autolock" {};
+        }
+    }
+    shared_except "locked" {
+        bind "Ctrl h" { MoveFocus "Left"; }
+        bind "Ctrl l" { MoveFocus "Right"; }
+        bind "Ctrl j" { MoveFocus "Down"; }
+        bind "Ctrl k" { MoveFocus "Up"; }
+    }
+}
