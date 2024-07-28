@@ -16,20 +16,3 @@ brew 'zellij'
 
 #Fonts
 brew 'font-meslo-lg-nerd-font'
-
-#Linters
-brew 'redpen'
-brew 'vale'
-
-#Bash Linters
-brew 'bashate'
-brew 'bash-language-server'
-brew 'shellcheck'
-
-#Go Linters
-brew 'gopls'
-brew 'staticcheck'
-
-#Python Linters
-brew 'yapf'
-brew 'isort'
