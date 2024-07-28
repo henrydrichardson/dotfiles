@@ -3,6 +3,14 @@ gui:
   commitHashLength: 4
   showDivergenceFromBaseBranch: arrowAndNumber
   commitAuthorShortLength: 2
+  spinner:
+    frames:
+      - "\uee06"
+      - "\uee07"
+      - "\uee08"
+      - "\uee09"
+      - "\uee0A"
+      - "\uee0B"
 git:
   parseEmoji: true
 update:
