@@ -7,22 +7,22 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
-	aws
-	docker
-	docker-compose
-	fzf
-	git
-	git-prompt
-	gitfast
-	helm
-	kubectl
-	minikube
-	pyenv
-	rbenv
-	you-should-use
-	zsh-autosuggestions
-	zsh-bat
-	zsh-syntax-highlighting
+  aws
+  docker
+  docker-compose
+  fzf
+  git
+  git-prompt
+  gitfast
+  helm
+  kubectl
+  minikube
+  pyenv
+  rbenv
+  you-should-use
+  zsh-autosuggestions
+  zsh-bat
+  zsh-syntax-highlighting
 )
 
 alias vim="nvim"
