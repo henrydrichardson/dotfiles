@@ -11,4 +11,5 @@ Brewfile.lock.json
 .config/nvim/foo.*
 .config/nvim/lazy-lock.json
 .config/nvim/lazyvim.json
+.config/nvim/spell
 .config/nvim/tt.*
