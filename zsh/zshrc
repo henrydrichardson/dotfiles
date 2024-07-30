@@ -2,6 +2,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/config.yml,$HOME/.local/share/nvim/lazy/tokyonight.nvim/extras/lazygit/tokyonight_moon.yml"
 
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
@@ -25,9 +27,12 @@ plugins=(
 
 alias vim="nvim"
 
-# Update Settings
+# Update Frequency Settings
 zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 7
+
+# ZSH Completion Settings
+LISTMAX=200
 
 eval "$(pyenv init --path)"
 eval "$(zoxide init zsh)"
