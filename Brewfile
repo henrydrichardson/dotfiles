@@ -15,4 +15,4 @@ brew 'lazygit'
 brew 'zellij'
 
 #Fonts
-brew 'font-meslo-lg-nerd-font'
+cask 'font-fira-code-nerd-font'
