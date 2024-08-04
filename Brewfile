@@ -13,6 +13,7 @@ brew 'neovim'
 brew 'vim'
 brew 'lazygit'
 brew 'zellij'
+brew 'vivid'
 
 #Fonts
 cask 'font-fira-code-nerd-font'
