@@ -1,6 +1,10 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 
+# LazyGit Configuration
 export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/config.yml,$HOME/.local/share/nvim/lazy/tokyonight.nvim/extras/lazygit/tokyonight_moon.yml"
+
+# eza Configuration
+export EZA_ICONS_AUTO="auto"
 
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
