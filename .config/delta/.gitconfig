@@ -1,0 +1,22 @@
+[include]
+  path = ./themes.gitconfig
+  path = ~/.local/share/nvim/lazy/tokyonight.nvim/extras/delta/tokyonight_night.gitconfig
+[core]
+  pager = delta --paging=always
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  syntax-theme = tokyonight_night
+  true-color = always
+  file-removed-label = 󰮘
+  file-added-label = 󰝒
+  file-modified-label = 󰤘
+  file-renamed-label = 󰪹
+  features = chameleon
+  side-by-side = false
+[merge]
+  conflictstyle = zdiff3
+[diff]
+  colorMoved = default
+  algorithm = histogram
