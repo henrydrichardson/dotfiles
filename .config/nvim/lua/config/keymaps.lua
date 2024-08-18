@@ -2,10 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- LazyVim.toggle.map("<leader>un", LazyVim.toggle("something", { name = "Non-Printables" }))
-
--- map("n", "<leader>un", "something", { desc = "Display Non-Printables" })
---
 local wk = require("which-key")
 
 wk.add({
