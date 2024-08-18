@@ -15,5 +15,8 @@ brew 'lazygit'
 brew 'zellij'
 brew 'vivid'
 
+# System Monitoring Utilities
+brew 'bottom'
+
 #Fonts
 cask 'font-fira-code-nerd-font'
