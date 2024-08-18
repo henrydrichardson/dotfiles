@@ -1,6 +1,30 @@
 [include]
   path = ./themes.gitconfig
   path = ~/.local/share/nvim/lazy/tokyonight.nvim/extras/delta/tokyonight_night.gitconfig
+[merge]
+  conflictstyle = zdiff3
+[diff]
+  colorMoved = default
+  colorMovedWS = allow-indentation-change
+  algorithm = histogram
+[rebase]
+  autoStash = true
+[push]
+  autoSetupRemote = true
+[init]
+  defaultBranch = main
+[rerere]
+  enabled = true
+[transfer]
+  fsckobjects = true
+[fetch]
+  fsckobjects = true
+  prune = true
+  prunetags = true
+[receive]
+  fsckobjects = true
+[branch]
+  sort = -committerdate
 [core]
   pager = delta --paging=always
 [interactive]
@@ -15,8 +39,3 @@
   file-renamed-label = 󰪹
   features = chameleon
   side-by-side = false
-[merge]
-  conflictstyle = zdiff3
-[diff]
-  colorMoved = default
-  algorithm = histogram
