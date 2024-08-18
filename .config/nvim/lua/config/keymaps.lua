@@ -18,3 +18,13 @@ wk.add({
     mode = "n",
   },
 })
+
+wk.add({
+  {
+    "<leader>a",
+    group = "Artifical Intelligence",
+    mode = { "n", "v" },
+    desc = "Artifical Intelligence",
+    icon = { icon = "\u{f09d1}", color = "azure" },
+  },
+})
