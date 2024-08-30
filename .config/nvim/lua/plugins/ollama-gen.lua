@@ -19,12 +19,12 @@ return {
       { "<leader>ag", "<cmd>:Gen Enhance_Grammar_Spelling<CR>", mode = "n", "Enhance grammar/spelling with AI" },
 
       -- Visual Mode Operations (Functions had to be seprated to retain replace/limited context operations)
-      { "<leader>aa", "<cmd>:'<,'>Gen<CR>", mode = "v", desc = "Launch AI" },
-      { "<leader>ac", "<cmd>:'<,'>Gen Chat<CR>", mode = "v", "Chat with AI" },
-      { "<leader>ae", "<cmd>:'<,'>Gen Enhance_Code<CR>", mode = "v", "Enhance Code with AI" },
-      { "<leader>ar", "<cmd>:'<,'>Gen Review_Code<CR>", mode = "v", "Review Code with AI" },
-      { "<leader>as", "<cmd>:'<,'>Gen Summarize<CR>", mode = "v", "Summarize text with AI" },
-      { "<leader>ag", "<cmd>:'<,'>Gen Enhance_Grammar_Spelling<CR>", mode = "v", "Enhance grammar/spelling with AI" },
+      { "<leader>aa", ":'<,'>Gen<CR>", mode = "v", desc = "Launch AI" },
+      { "<leader>ac", ":'<,'>Gen Chat<CR>", mode = "v", desc = "Chat with AI" },
+      { "<leader>ae", ":'<,'>Gen Enhance_Code<CR>", mode = "v", desc = "Enhance Code with AI" },
+      { "<leader>ar", ":'<,'>Gen Review_Code<CR>", mode = "v", desc = "Review Code with AI" },
+      { "<leader>as", ":'<,'>Gen Summarize<CR>", mode = "v", desc = "Summarize text with AI" },
+      { "<leader>ag", ":'<,'>Gen Enhance_Grammar_Spelling<CR>", mode = "v", desc = "Enhance grammar/spelling with AI" },
     },
   },
 }
