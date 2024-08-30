@@ -9,8 +9,6 @@
   algorithm = histogram
 [rebase]
   autoStash = true
-[push]
-  autoSetupRemote = true
 [init]
   defaultBranch = main
 [rerere]
@@ -25,6 +23,8 @@
   fsckobjects = true
 [branch]
   sort = -committerdate
+[pager]
+  stash = false
 [core]
   pager = delta --paging=always
 [interactive]
