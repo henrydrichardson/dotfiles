@@ -1,6 +1,8 @@
 [include]
   path = ./themes.gitconfig
   path = ~/.local/share/nvim/lazy/tokyonight.nvim/extras/delta/tokyonight_night.gitconfig
+[alias]
+  gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
 [merge]
   conflictstyle = zdiff3
 [diff]
