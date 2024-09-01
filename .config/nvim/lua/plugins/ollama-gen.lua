@@ -1,10 +1,35 @@
+local generate_documentation_prompt = [[
+Given the attached code file $filetype generate accurate and comprehensive documentation in $input
+
+Please include the following information:
+
+* **Overview**: A brief summary of what the code does, including its purpose and main functionality.
+* **Functionality**: A detailed explanation of each function or method, including parameters, return values, and any notable implementation details.
+* **Variables**: A description of all variables used in the code, including their scope, type, and usage.
+* **Dependencies**: A list of any external libraries, frameworks, or modules required by the code.
+* **Assumptions**: Any assumptions made by the code regarding input data, environmental conditions, or other factors.
+
+Organize your documentation using clear headings and concise language. Use standard notation for explaining code snippets and syntax. If there are any complex concepts or algorithms
+used in the code, please provide explanations that a novice programmer could understand.
+
+**Code File/Snippet:**
+```
+$text
+```
+]]
+
 return {
   {
     "David-Kunz/gen.nvim",
     cond = function()
       return vim.env.SYSTEM_USAGE_TYPE == "personal"
     end,
-    init = function() end,
+    init = function()
+      require("gen").prompts["Generate_Documentation"] = {
+        prompt = generate_documentation_prompt,
+        replace = false,
+      }
+    end,
     opts = {
       model = "llama3.1",
       display_mode = "split",
