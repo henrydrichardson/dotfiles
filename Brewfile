@@ -14,6 +14,7 @@ brew 'git-delta'
 brew 'lazygit'
 brew 'zellij'
 brew 'vivid'
+brew 'homeport/tap/dyff'
 
 # System Monitoring Utilities
 brew 'bottom'
