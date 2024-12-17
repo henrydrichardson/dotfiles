@@ -21,7 +21,7 @@ This CLI environment major components consists of the following projects:
 
 These steps assume you already have HomeBrew/LinuxBrew installed and working.
 
-1. `brew install bundle`
+1. `brew bundle`
    * Downloads the required packages and utilities
 2. Add the zsh configuration files to your `~/.zshrc`
 
