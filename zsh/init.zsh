@@ -11,5 +11,8 @@ source "$working_directory/oh-my-zsh-loader.zsh"
 # eza Configuration
 source "$working_directory/eza_configuration.zsh"
 
+# SystemCtl Configuration
+export SYSTEMD_EDITOR=nvim
+
 # Custom Alias
 alias vim="nvim"
