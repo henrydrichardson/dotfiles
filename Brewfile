@@ -15,6 +15,8 @@ brew 'lazygit'
 brew 'zellij'
 brew 'vivid'
 brew 'homeport/tap/dyff'
+brew 'lynx'
+brew 'curl'
 
 # System Monitoring Utilities
 brew 'bottom'
