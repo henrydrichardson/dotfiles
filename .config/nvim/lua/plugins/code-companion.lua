@@ -1,3 +1,13 @@
+local function get_strategy_adapter()
+  local adapter = ""
+  if vim.env.SYSTEM_USAGE_TYPE == "personal" then
+    adapter = "ollama"
+  else
+    adapter = "copilot"
+  end
+  return adapter
+end
+
 return {
   "olimorris/codecompanion.nvim",
   config = true,
@@ -15,12 +25,21 @@ return {
         },
       })
     end,
+    ollama = function()
+      return require("codecompanion.adapters").extend("ollama", {
+        schema = {
+          num_ctx = {
+            default = 20000,
+          },
+        },
+      })
+    end,
     strategies = {
       chat = {
-        adapter = "copilot",
+        adapter = get_strategy_adapter(),
       },
       inline = {
-        adapter = "copilot",
+        adapter = get_strategy_adapter(),
       },
     },
   },
