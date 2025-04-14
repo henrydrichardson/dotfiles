@@ -1,11 +1,19 @@
-local function get_strategy_adapter()
+local function get_strategy_adapter(is_reasoning)
   local adapter = ""
   if vim.env.SYSTEM_USAGE_TYPE == "personal" then
-    adapter = "ollama"
+    if is_reasoning == true then
+      adapter = "ollama_reasoning"
+    else
+      adapter = "ollama"
+    end
   else
     adapter = "copilot"
   end
   return adapter
+end
+
+local function ollama_reasoning_model_default()
+  return "cogito:14b"
 end
 
 return {
@@ -16,33 +24,86 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   opts = {
-    copilot = function()
-      return require("codecompanion.adapters").extend("copilot", {
-        schema = {
-          model = {
-            default = "gpt4o",
+    adapters = {
+      copilot = function()
+        return require("codecompanion.adapters").extend("copilot", {
+          schema = {
+            model = {
+              default = "gpt4o",
+            },
           },
-        },
-      })
-    end,
-    ollama = function()
-      return require("codecompanion.adapters").extend("ollama", {
-        schema = {
-          model = {
-            default = "gemma3:27b",
+        })
+      end,
+      ollama = function()
+        return require("codecompanion.adapters").extend("ollama", {
+          schema = {
+            model = {
+              default = "gemma3:27b",
+            },
+            num_ctx = {
+              default = 20000,
+            },
           },
-          num_ctx = {
-            default = 20000,
+        })
+      end,
+      ollama_reasoning = function()
+        return require("codecompanion.adapters").extend("ollama", {
+          schema = {
+            model = {
+              default = ollama_reasoning_model_default(),
+            },
+            num_ctx = {
+              default = 20000,
+            },
           },
-        },
-      })
-    end,
+        })
+      end,
+    },
     strategies = {
       chat = {
-        adapter = get_strategy_adapter(),
+        adapter = get_strategy_adapter(false),
       },
       inline = {
-        adapter = get_strategy_adapter(),
+        adapter = get_strategy_adapter(false),
+      },
+    },
+    prompt_library = {
+      ["MR Crafter"] = {
+        strategy = "workflow",
+        description = "Write merge request descriptions for me",
+        opts = {
+          index = 12,
+          is_slash_cmd = false,
+          auto_submit = true,
+          short_name = "mr",
+          adapter = "ollama_reasoning",
+        },
+        prompts = {
+          {
+            {
+              role = "system",
+              content = [[You are a software engineer responsible for creating high-quality merge requests. This project uses Gitlab for version control. We use Gitlab Flavored Markdown for styling.]],
+            },
+            {
+              role = "user",
+              content = function()
+                return [[Use @cmd_runner with `git diff origin/main` to get a list of changes.]]
+              end,
+              opts = {
+                auto_submit = true,
+              },
+            },
+          },
+          {
+            {
+              role = "user",
+              content = [[Write a merge request description for the changes. Use @editor to apply the suggested descritpion in #buffer{watch}]],
+              opts = {
+                auto_submit = true,
+              },
+            },
+          },
+        },
       },
     },
   },
