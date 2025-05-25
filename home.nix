@@ -43,6 +43,7 @@
     pkgs.dust
     pkgs.glow
     pkgs.nerd-fonts.fira-code
+    pkgs.devenv
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -114,6 +115,10 @@
       enableZshIntegration = true;
       icons = "auto";
       git = true;
+    };
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
     };
     zoxide = {
       enable = true;
