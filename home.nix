@@ -53,9 +53,7 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    "${XDGConfigHome}/bottom".source = ./config/bottom;
     "${XDGConfigHome}/delta".source = ./config/delta;
-    "${XDGConfigHome}/lazygit".source = ./config/lazygit;
     "${XDGConfigHome}/nvim".source = ./config/nvim;
     "${XDGConfigHome}/zellij".source = ./config/zellij;
 
@@ -128,7 +126,48 @@
       vimAlias = true;
       vimdiffAlias = true;
     };
-    lazygit.enable = true;
-    bottom.enable = true;
+    lazygit = {
+      enable = true;
+      settings = {
+        gui = {
+          skipDiscardChangeWarning = true;
+          commitHashLength = 4;
+          showDivergenceFromBaseBranch = "arrowAndNumber";
+          commitAuthorShortLength = 2;
+          spinner = {
+            frames = [ "uee06" "uee07" "uee08" "uee09" "uee0A" "uee0B" ];
+          };
+        };
+        git = {
+          parseEmoji = true;
+          paging = {
+            colorArg = "always";
+            pager = "delta --paging=never";
+          };
+        };
+        update = {
+          method = "background";
+          days = 1;
+        };
+        refresher = {
+          refreshInterval = 600;
+          fetchInterval = 3600;
+        };
+        customCommands = [{
+          key = "G";
+          context = "localBranches";
+          command = "git gone";
+          description =
+            "Remove local branches that have been removed on remote";
+        }];
+      };
+    };
+    bottom = {
+      enable = true;
+      settings = {
+        flags = { enable_gpu = true; };
+        cpu = { default = "average"; };
+      };
+    };
   };
 }

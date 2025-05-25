@@ -1,8 +1,0 @@
-[flags]
-# Shows GPU(s) information
-enable_gpu = true
-
-# CPU widget configuration
-[cpu]
-# One of "all" (default), "average"/"avg"
-default = "average"
