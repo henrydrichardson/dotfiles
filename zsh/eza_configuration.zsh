@@ -1,7 +1,6 @@
 # ------------------------------
 # eza - Configurations
 # ------------------------------
-export EZA_ICONS_AUTO="auto"
 export LS_COLORS=$(vivid generate tokyonight-moon)
 
 # ------------------------------

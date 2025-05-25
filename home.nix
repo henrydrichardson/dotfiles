@@ -5,7 +5,7 @@
   # manage.
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
-
+  home.enableNixpkgsReleaseCheck = false;
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -111,7 +111,12 @@
     };
     ripgrep.enable = true;
     ripgrep-all.enable = true;
-    eza.enable = true;
+    eza = {
+      enable = true;
+      enableZshIntegration = true;
+      icons = "auto";
+      git = true;
+    };
     zoxide.enable = true;
     jq.enable = true;
     neovim = {
