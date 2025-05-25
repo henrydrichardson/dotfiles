@@ -53,7 +53,6 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    "${XDGConfigHome}/bat".source = ./config/bat;
     "${XDGConfigHome}/bottom".source = ./config/bottom;
     "${XDGConfigHome}/delta".source = ./config/delta;
     "${XDGConfigHome}/lazygit".source = ./config/lazygit;
@@ -90,8 +89,25 @@
   # Let Home Manager install and manage itself.
   programs = {
     home-manager.enable = true;
-    bat.enable = true;
+    bat = {
+      enable = true;
+      config = { theme = "tokyonight_night"; };
+      extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
+      themes = {
+        tokyonight_night = {
+          src = pkgs.fetchFromGitHub {
+            owner = "folke";
+            repo = "tokyonight.nvim";
+            rev = "057ef5d260c1931f1dffd0f052c685dcd14100a3";
+            hash = "sha256-1xZhQR1BhH2eqax0swlNtnPWIEUTxSOab6sQ3Fv9WQA=";
+          };
+          file = "extras/sublime/tokyonight_night.tmTheme";
+        };
+      };
+    };
     fzf.enable = true;
+    ripgrep.enable = true;
+    ripgrep-all.enable = true;
     eza.enable = true;
     zoxide.enable = true;
     jq.enable = true;
