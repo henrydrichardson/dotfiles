@@ -105,7 +105,10 @@
         };
       };
     };
-    fzf.enable = true;
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     ripgrep.enable = true;
     ripgrep-all.enable = true;
     eza.enable = true;
