@@ -2,7 +2,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-eval "$(pyenv init --path)"
 eval "$(zoxide init zsh)"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
