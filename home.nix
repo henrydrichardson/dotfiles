@@ -117,7 +117,10 @@
       icons = "auto";
       git = true;
     };
-    zoxide.enable = true;
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     jq.enable = true;
     neovim = {
       enable = true;
