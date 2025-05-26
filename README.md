@@ -2,7 +2,7 @@
 
 This is a highly opinionated configuration suitable for use on Mac OS X, Linux, and WSL as quickly as possible.
 
-Direct installation of these configuration files is not recommended due to making zero attempts at non-permanent alterations. This repository is provided as a potential inspiration source for creating your own dotfiles.
+This repository is provided as a potential inspiration source for creating your own dotfiles.
 
 ## Dependency Overview
 
@@ -19,23 +19,8 @@ This CLI environment major components consists of the following projects:
 
 ## Installation
 
-These steps assume you already have HomeBrew/LinuxBrew installed and working.
-
-1. `brew bundle`
-   * Downloads the required packages and utilities
-2. Add the zsh configuration files to your `~/.zshrc`
+These steps assume you already have Nix/Home-Manager installed and working.
 
 ```bash
-echo '# Define the type of environment: personal, work, etc. Enables/Disables permitted functionality
-export SYSTEM_USAGE_TYPE="work"
-source <PATH_TO_THIS_REPOSITORY>/dotfiles/zsh/init.zsh' >> ~/.zshrc
-source ~/.zshrc
+ln -s "$(pwd)/home.nix" "$XDG_CONFIG_HOME/home-manager/home.nix"
 ```
-
-3. Link Custom Configuration files to XDG_CONFIG_HOME
-
-```bash
-for i in .config/* ; do ; ln -s "$(pwd)/.config/$(basename $i)" "$XDG_CONFIG_HOME/"; done
-```
-
-4. Update the terminal editor to use [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
