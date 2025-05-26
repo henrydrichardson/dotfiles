@@ -47,18 +47,20 @@
     unzip
   ];
 
+  xdg.configFile = {
+    "delta".source = ./config/delta;
+    "zellij".source = ./config/zellij;
+    "nvim".source =
+      config.lib.file.mkOutOfStoreSymlink (builtins.toString ./config/nvim);
+  };
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.inherit
-  home.file = let XDGConfigHome = builtins.getEnv "XDG_CONFIG_HOME";
-  in {
+  home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    "${XDGConfigHome}/delta".source = ./config/delta;
-    "${XDGConfigHome}/nvim".source =
-      config.lib.file.mkOutOfStoreSymlink (builtins.toString ./config/nvim);
-    "${XDGConfigHome}/zellij".source = ./config/zellij;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
