@@ -44,6 +44,7 @@
     glow
     nerd-fonts.fira-code
     devenv
+    unzip
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -55,7 +56,8 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
     "${XDGConfigHome}/delta".source = ./config/delta;
-    "${XDGConfigHome}/nvim".source = ./config/nvim;
+    "${XDGConfigHome}/nvim".source =
+      config.lib.file.mkOutOfStoreSymlink (builtins.toString ./config/nvim);
     "${XDGConfigHome}/zellij".source = ./config/zellij;
 
     # # You can also set the file content immediately.
@@ -145,7 +147,8 @@
           showDivergenceFromBaseBranch = "arrowAndNumber";
           commitAuthorShortLength = 2;
           spinner = {
-            frames = [ "uee06" "uee07" "uee08" "uee09" "uee0A" "uee0B" ];
+            frames =
+              [ "\\uee06" "\\uee07" "\\uee08" "\\uee09" "\\uee0A" "\\uee0B" ];
           };
         };
         git = {
