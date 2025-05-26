@@ -91,6 +91,8 @@
       "uu=36:gu=37:sn=32:sb=32:da=34:ur=34:uw=35:ux=36:ue=36:gr=34:gw=35:gx=36:tr=34:tw=35:tx=36:";
   };
 
+  home.shell.enableZshIntegration = true;
+
   # Let Home Manager install and manage itself.
   programs = let
     tokyonight = {
@@ -112,27 +114,17 @@
         };
       };
     };
-    fzf = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+    fzf = { enable = true; };
     ripgrep.enable = true;
     ripgrep-all.enable = true;
     eza = {
       enable = true;
-      enableZshIntegration = true;
       icons = "auto";
       colors = "auto";
       git = true;
     };
-    direnv = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-    zoxide = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+    direnv = { enable = true; };
+    zoxide = { enable = true; };
     jq.enable = true;
     neovim = {
       enable = true;
