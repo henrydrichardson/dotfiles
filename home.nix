@@ -188,6 +188,7 @@
     zsh = {
       enable = true;
       enableVteIntegration = true;
+      enableCompletion = true;
       autosuggestion = { enable = true; };
       history = { ignoreAllDups = true; };
       plugins = [
