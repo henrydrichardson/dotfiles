@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -17,7 +17,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -34,16 +34,16 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    pkgs.nixfmt-rfc-style
-    pkgs.dyff
-    pkgs.vivid
-    pkgs.delta
-    pkgs.viu
-    pkgs.duf
-    pkgs.dust
-    pkgs.glow
-    pkgs.nerd-fonts.fira-code
-    pkgs.devenv
+    nixfmt-rfc-style
+    dyff
+    vivid
+    delta
+    viu
+    duf
+    dust
+    glow
+    nerd-fonts.fira-code
+    devenv
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -173,6 +173,56 @@
         flags = { enable_gpu = true; };
         cpu = { default = "average"; };
       };
+    };
+
+    zsh = {
+      enable = true;
+      enableVteIntegration = true;
+      autosuggestion = { enable = true; };
+      history = { ignoreAllDups = true; };
+      plugins = [
+        {
+          name = "powerlevel10k";
+          src = pkgs.zsh-powerlevel10k;
+          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+        {
+          name = pkgs.zsh-you-should-use.pname;
+          src = pkgs.zsh-you-should-use.src;
+        }
+      ];
+      syntaxHighlighting = { enable = true; };
+      oh-my-zsh = {
+        enable = true;
+        plugins = [
+          "aws"
+          "docker"
+          "docker-compose"
+          "fzf"
+          "git"
+          "git-prompt"
+          "gitfast"
+          "helm"
+          "kubectl"
+          "minikube"
+          "pyenv"
+          "rbenv"
+        ];
+
+      };
+      initContent = lib.mkMerge [
+        (lib.mkOrder 1500 ''
+          # Hack for Windows Terminal, set COLORTERM value even though Windows Terminal is True Color Capable. 
+          export COLORTERM="truecolor"
+
+          # Define the type of environment: personal, work, etc.
+          export SYSTEM_USAGE_TYPE="personal"
+
+          source ~/repos/dotfiles/zsh/init.zsh
+
+          [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+        '')
+      ];
     };
   };
 }
