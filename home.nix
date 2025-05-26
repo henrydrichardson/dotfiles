@@ -95,7 +95,7 @@
 
   # Let Home Manager install and manage itself.
   programs = let
-    tokyonight = {
+    tokyonight = pkgs.fetchFromGitHub {
       owner = "folke";
       repo = "tokyonight.nvim";
       rev = "057ef5d260c1931f1dffd0f052c685dcd14100a3";
@@ -109,7 +109,7 @@
       extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
       themes = {
         tokyonight_night = {
-          src = pkgs.fetchFromGitHub tokyonight;
+          src = tokyonight;
           file = "extras/sublime/tokyonight_night.tmTheme";
         };
       };
@@ -143,6 +143,20 @@
           spinner = {
             frames =
               [ "\\uee06" "\\uee07" "\\uee08" "\\uee09" "\\uee0A" "\\uee0B" ];
+          };
+          nerdFontsVersion = 3;
+          theme = {
+            activeBorderColor = [ "#ff966c" "bold" ];
+            inactiveBorderColor = [ "#589ed7" ];
+            searchingActiveBorderColor = [ "#ff966c" "bold" ];
+            optionsTextColor = [ "#82aaff" ];
+            selectedLineBgColor = [ "#2d3f76" ];
+            cherryPickedCommitFgColor = [ "#82aaff" ];
+            cherryPickedCommitBgColor = [ "#c099ff" ];
+            markedBaseCommitFgColor = [ "#82aaff" ];
+            markedBaseCommitBgColor = [ "#ffc777" ];
+            unstagedChangesColor = [ "#c53b53" ];
+            defaultFgColor = [ "#c8d3f5" ];
           };
         };
         git = {
@@ -222,8 +236,6 @@
           export SYSTEM_USAGE_TYPE="personal"
 
           export LS_COLORS=$(vivid generate tokyonight-moon)
-
-          source ~/repos/dotfiles/zsh/init.zsh
 
           [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
         '')
