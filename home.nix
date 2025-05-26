@@ -83,10 +83,19 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    EZA_COLORS =
+      "uu=36:gu=37:sn=32:sb=32:da=34:ur=34:uw=35:ux=36:ue=36:gr=34:gw=35:gx=36:tr=34:tw=35:tx=36:";
   };
 
   # Let Home Manager install and manage itself.
-  programs = {
+  programs = let
+    tokyonight = {
+      owner = "folke";
+      repo = "tokyonight.nvim";
+      rev = "057ef5d260c1931f1dffd0f052c685dcd14100a3";
+      hash = "sha256-1xZhQR1BhH2eqax0swlNtnPWIEUTxSOab6sQ3Fv9WQA=";
+    };
+  in {
     home-manager.enable = true;
     bat = {
       enable = true;
@@ -94,12 +103,7 @@
       extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
       themes = {
         tokyonight_night = {
-          src = pkgs.fetchFromGitHub {
-            owner = "folke";
-            repo = "tokyonight.nvim";
-            rev = "057ef5d260c1931f1dffd0f052c685dcd14100a3";
-            hash = "sha256-1xZhQR1BhH2eqax0swlNtnPWIEUTxSOab6sQ3Fv9WQA=";
-          };
+          src = pkgs.fetchFromGitHub tokyonight;
           file = "extras/sublime/tokyonight_night.tmTheme";
         };
       };
@@ -114,6 +118,7 @@
       enable = true;
       enableZshIntegration = true;
       icons = "auto";
+      colors = "auto";
       git = true;
     };
     direnv = {
@@ -217,6 +222,8 @@
 
           # Define the type of environment: personal, work, etc.
           export SYSTEM_USAGE_TYPE="personal"
+
+          export LS_COLORS=$(vivid generate tokyonight-moon)
 
           source ~/repos/dotfiles/zsh/init.zsh
 
