@@ -45,6 +45,7 @@
     nerd-fonts.fira-code
     devenv
     unzip
+    nodejs_24 # Used by Neovim - Mason.
   ];
 
   xdg.configFile = {
