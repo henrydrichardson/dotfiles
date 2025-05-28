@@ -69,39 +69,31 @@ return {
     },
     prompt_library = {
       ["MR Crafter"] = {
-        strategy = "workflow",
+        strategy = "chat",
         description = "Write merge request descriptions for me",
         opts = {
           index = 12,
           is_slash_cmd = false,
           auto_submit = true,
           short_name = "mr",
-          adapter = "ollama_reasoning",
         },
         prompts = {
           {
-            {
-              role = "system",
-              content = [[You are a software engineer responsible for creating high-quality merge requests. This project uses Gitlab for version control. We use Gitlab Flavored Markdown for styling.]],
-            },
-            {
-              role = "user",
-              content = function()
-                return [[Use @cmd_runner with `git diff origin/main` to get a list of changes.]]
-              end,
-              opts = {
-                auto_submit = true,
-              },
-            },
+            role = "system",
+            content = [[You are a software engineer responsible for creating high-quality merge requests. This project uses Gitlab for version control. We use Gitlab Flavored Markdown for styling.]],
           },
           {
-            {
-              role = "user",
-              content = [[Write a merge request description for the changes. Use @editor to apply the suggested descritpion in #buffer{watch}]],
-              opts = {
-                auto_submit = true,
-              },
-            },
+            role = "user",
+            content = function()
+              return string.format(
+                [[Write a merge request description for the given changes below. Use @editor to apply the suggested descritpion in #buffer{watch}
+```diff
+%s
+```
+]],
+                vim.fn.system("git diff --no-ext-diff origin/main")
+              )
+            end,
           },
         },
       },
