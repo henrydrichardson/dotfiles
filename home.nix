@@ -34,18 +34,24 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    nixfmt-rfc-style
-    dyff
-    vivid
     delta
-    viu
+    devenv
     duf
     dust
+    dyff
+    gh
+    ghostscript # Used by Neovim - Snacks
     glow
+    imagemagick # Used by Neovim - Snacks
+    lua5_1 # Used by Neovim
+    luarocks # Used by Neovim
     nerd-fonts.fira-code
-    devenv
-    unzip
+    nixfmt-rfc-style
     nodejs_24 # Used by Neovim - Mason.
+    tectonic # Used by Neovim - Snacks
+    unzip
+    viu
+    vivid
   ];
 
   xdg.configFile = {
@@ -214,6 +220,7 @@
         enable = true;
         plugins = [
           "aws"
+          "direnv"
           "docker"
           "docker-compose"
           "fzf"
@@ -223,8 +230,6 @@
           "helm"
           "kubectl"
           "minikube"
-          "pyenv"
-          "rbenv"
         ];
 
       };
@@ -234,7 +239,7 @@
           export COLORTERM="truecolor"
 
           # Define the type of environment: personal, work, etc.
-          export SYSTEM_USAGE_TYPE="personal"
+          export SYSTEM_USAGE_TYPE="work"
 
           export LS_COLORS=$(vivid generate tokyonight-moon)
 
