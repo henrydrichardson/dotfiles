@@ -39,6 +39,7 @@
     duf
     dust
     dyff
+    fd
     gh
     ghostscript # Used by Neovim - Snacks
     glow
