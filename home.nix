@@ -1,5 +1,13 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
+let
+  localConfig = if builtins.pathExists ./local.nix then import ./local.nix else { };
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -58,8 +66,7 @@
   xdg.configFile = {
     "delta".source = ./config/delta;
     "zellij".source = ./config/zellij;
-    "nvim".source =
-      config.lib.file.mkOutOfStoreSymlink (builtins.toString ./config/nvim);
+    "nvim".source = config.lib.file.mkOutOfStoreSymlink (builtins.toString ./config/nvim);
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -93,160 +100,200 @@
   #
   #  /etc/profiles/per-user/hrichardson/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-    EZA_COLORS =
-      "uu=36:gu=37:sn=32:sb=32:da=34:ur=34:uw=35:ux=36:ue=36:gr=34:gw=35:gx=36:tr=34:tw=35:tx=36:";
-  };
+  home.sessionVariables = lib.mkMerge [
+    {
+      # EDITOR = "emacs";
+      EZA_COLORS = "uu=36:gu=37:sn=32:sb=32:da=34:ur=34:uw=35:ux=36:ue=36:gr=34:gw=35:gx=36:tr=34:tw=35:tx=36:";
+    }
+    localConfig.sessionVariables or { }
+  ];
 
   home.shell.enableZshIntegration = true;
 
   # Let Home Manager install and manage itself.
-  programs = let
-    tokyonight = pkgs.fetchFromGitHub {
-      owner = "folke";
-      repo = "tokyonight.nvim";
-      rev = "057ef5d260c1931f1dffd0f052c685dcd14100a3";
-      hash = "sha256-1xZhQR1BhH2eqax0swlNtnPWIEUTxSOab6sQ3Fv9WQA=";
-    };
-  in {
-    home-manager.enable = true;
-    bat = {
-      enable = true;
-      config = { theme = "tokyonight_night"; };
-      extraPackages = with pkgs.bat-extras; [ batdiff batman batgrep batwatch ];
-      themes = {
-        tokyonight_night = {
-          src = tokyonight;
-          file = "extras/sublime/tokyonight_night.tmTheme";
-        };
+  programs =
+    let
+      tokyonight = pkgs.fetchFromGitHub {
+        owner = "folke";
+        repo = "tokyonight.nvim";
+        rev = "057ef5d260c1931f1dffd0f052c685dcd14100a3";
+        hash = "sha256-1xZhQR1BhH2eqax0swlNtnPWIEUTxSOab6sQ3Fv9WQA=";
       };
-    };
-    fzf = { enable = true; };
-    ripgrep.enable = true;
-    ripgrep-all.enable = true;
-    eza = {
-      enable = true;
-      icons = "auto";
-      colors = "auto";
-      git = true;
-    };
-    direnv = { enable = true; };
-    zoxide = { enable = true; };
-    jq.enable = true;
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-    };
-    lazygit = {
-      enable = true;
-      settings = {
-        gui = {
-          skipDiscardChangeWarning = true;
-          commitHashLength = 4;
-          showDivergenceFromBaseBranch = "arrowAndNumber";
-          commitAuthorShortLength = 2;
-          spinner = {
-            frames =
-              [ "\\uee06" "\\uee07" "\\uee08" "\\uee09" "\\uee0A" "\\uee0B" ];
-          };
-          nerdFontsVersion = 3;
-          theme = {
-            activeBorderColor = [ "#ff966c" "bold" ];
-            inactiveBorderColor = [ "#589ed7" ];
-            searchingActiveBorderColor = [ "#ff966c" "bold" ];
-            optionsTextColor = [ "#82aaff" ];
-            selectedLineBgColor = [ "#2d3f76" ];
-            cherryPickedCommitFgColor = [ "#82aaff" ];
-            cherryPickedCommitBgColor = [ "#c099ff" ];
-            markedBaseCommitFgColor = [ "#82aaff" ];
-            markedBaseCommitBgColor = [ "#ffc777" ];
-            unstagedChangesColor = [ "#c53b53" ];
-            defaultFgColor = [ "#c8d3f5" ];
-          };
-        };
-        git = {
-          parseEmoji = true;
-          paging = {
-            colorArg = "always";
-            pager = "delta --paging=never";
-          };
-        };
-        update = {
-          method = "background";
-          days = 1;
-        };
-        refresher = {
-          refreshInterval = 600;
-          fetchInterval = 3600;
-        };
-        customCommands = [{
-          key = "G";
-          context = "localBranches";
-          command = "git gone";
-          description =
-            "Remove local branches that have been removed on remote";
-        }];
-      };
-    };
-    bottom = {
-      enable = true;
-      settings = {
-        flags = { enable_gpu = true; };
-        cpu = { default = "average"; };
-      };
-    };
-
-    zsh = {
-      enable = true;
-      enableVteIntegration = true;
-      enableCompletion = true;
-      autosuggestion = { enable = true; };
-      history = { ignoreAllDups = true; };
-      plugins = [
-        {
-          name = "powerlevel10k";
-          src = pkgs.zsh-powerlevel10k;
-          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        }
-        {
-          name = pkgs.zsh-you-should-use.pname;
-          src = pkgs.zsh-you-should-use.src;
-        }
-      ];
-      syntaxHighlighting = { enable = true; };
-      oh-my-zsh = {
+    in
+    {
+      home-manager.enable = true;
+      bat = {
         enable = true;
-        plugins = [
-          "aws"
-          "direnv"
-          "docker"
-          "docker-compose"
-          "fzf"
-          "git"
-          "git-prompt"
-          "gitfast"
-          "helm"
-          "kubectl"
-          "minikube"
+        config = {
+          theme = "tokyonight_night";
+        };
+        extraPackages = with pkgs.bat-extras; [
+          batdiff
+          batman
+          batgrep
+          batwatch
         ];
-
+        themes = {
+          tokyonight_night = {
+            src = tokyonight;
+            file = "extras/sublime/tokyonight_night.tmTheme";
+          };
+        };
       };
-      initContent = lib.mkMerge [
-        (lib.mkOrder 1500 ''
-          # Hack for Windows Terminal, set COLORTERM value even though Windows Terminal is True Color Capable. 
-          export COLORTERM="truecolor"
+      fzf = {
+        enable = true;
+      };
+      ripgrep.enable = true;
+      ripgrep-all.enable = true;
+      eza = {
+        enable = true;
+        icons = "auto";
+        colors = "auto";
+        git = true;
+      };
+      direnv = {
+        enable = true;
+      };
+      zoxide = {
+        enable = true;
+      };
+      jq.enable = true;
+      neovim = {
+        enable = true;
+        defaultEditor = true;
+        vimAlias = true;
+        vimdiffAlias = true;
+      };
+      lazygit = {
+        enable = true;
+        settings = {
+          gui = {
+            skipDiscardChangeWarning = true;
+            commitHashLength = 4;
+            showDivergenceFromBaseBranch = "arrowAndNumber";
+            commitAuthorShortLength = 2;
+            spinner = {
+              frames = [
+                "\\uee06"
+                "\\uee07"
+                "\\uee08"
+                "\\uee09"
+                "\\uee0A"
+                "\\uee0B"
+              ];
+            };
+            nerdFontsVersion = 3;
+            theme = {
+              activeBorderColor = [
+                "#ff966c"
+                "bold"
+              ];
+              inactiveBorderColor = [ "#589ed7" ];
+              searchingActiveBorderColor = [
+                "#ff966c"
+                "bold"
+              ];
+              optionsTextColor = [ "#82aaff" ];
+              selectedLineBgColor = [ "#2d3f76" ];
+              cherryPickedCommitFgColor = [ "#82aaff" ];
+              cherryPickedCommitBgColor = [ "#c099ff" ];
+              markedBaseCommitFgColor = [ "#82aaff" ];
+              markedBaseCommitBgColor = [ "#ffc777" ];
+              unstagedChangesColor = [ "#c53b53" ];
+              defaultFgColor = [ "#c8d3f5" ];
+            };
+          };
+          git = {
+            parseEmoji = true;
+            paging = {
+              colorArg = "always";
+              pager = "delta --paging=never";
+            };
+          };
+          update = {
+            method = "background";
+            days = 1;
+          };
+          refresher = {
+            refreshInterval = 600;
+            fetchInterval = 3600;
+          };
+          customCommands = [
+            {
+              key = "G";
+              context = "localBranches";
+              command = "git gone";
+              description = "Remove local branches that have been removed on remote";
+            }
+          ];
+        };
+      };
+      bottom = {
+        enable = true;
+        settings = {
+          flags = {
+            enable_gpu = true;
+          };
+          cpu = {
+            default = "average";
+          };
+        };
+      };
 
-          # Define the type of environment: personal, work, etc.
-          export SYSTEM_USAGE_TYPE="work"
+      zsh = {
+        enable = true;
+        enableVteIntegration = true;
+        enableCompletion = true;
+        autosuggestion = {
+          enable = true;
+        };
+        history = {
+          ignoreAllDups = true;
+        };
+        plugins = [
+          {
+            name = "powerlevel10k";
+            src = pkgs.zsh-powerlevel10k;
+            file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+          }
+          {
+            name = pkgs.zsh-you-should-use.pname;
+            src = pkgs.zsh-you-should-use.src;
+          }
+        ];
+        syntaxHighlighting = {
+          enable = true;
+        };
+        oh-my-zsh = {
+          enable = true;
+          plugins = [
+            "aws"
+            "direnv"
+            "docker"
+            "docker-compose"
+            "fzf"
+            "git"
+            "git-prompt"
+            "gitfast"
+            "helm"
+            "kubectl"
+            "minikube"
+          ];
 
-          export LS_COLORS=$(vivid generate tokyonight-moon)
+        };
+        initContent = lib.mkMerge [
+          (lib.mkOrder 1500 ''
+            # Hack for Windows Terminal, set COLORTERM value even though Windows Terminal is True Color Capable. 
+            export COLORTERM="truecolor"
 
-          [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-        '')
-      ];
+            # Define the type of environment: personal, work, etc.
+            export SYSTEM_USAGE_TYPE="work"
+
+            export LS_COLORS=$(vivid generate tokyonight-moon)
+
+            [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+          '')
+        ];
+      };
     };
-  };
 }
