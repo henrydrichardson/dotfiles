@@ -121,7 +121,6 @@ in
       };
     in
     {
-      home-manager.enable = true;
       bat = {
         enable = true;
         config = {
