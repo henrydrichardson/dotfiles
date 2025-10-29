@@ -6,6 +6,7 @@
 }:
 
 let
+  pkgs2505 = import <nixpkgs-25.05> { };
   localConfig = if builtins.pathExists ./local.nix then import ./local.nix else { };
 in
 {
@@ -42,6 +43,7 @@ in
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    cargo # Used by Neovim
     delta
     devenv
     duf
@@ -51,12 +53,14 @@ in
     gh
     ghostscript # Used by Neovim - Snacks
     glow
+    iam-policy-json-to-terraform
     imagemagick # Used by Neovim - Snacks
     lua5_1 # Used by Neovim
     luarocks # Used by Neovim
     nerd-fonts.fira-code
     nixfmt-rfc-style
     nodejs_24 # Used by Neovim - Mason.
+    pre-commit
     tectonic # Used by Neovim - Snacks
     unzip
     viu
@@ -121,16 +125,18 @@ in
       };
     in
     {
+      home-manager.enable = true;
       bat = {
         enable = true;
         config = {
           theme = "tokyonight_night";
         };
-        extraPackages = with pkgs.bat-extras; [
+        extraPackages = with pkgs2505.bat-extras; [
           batdiff
           batman
           batgrep
           batwatch
+          batpipe
         ];
         themes = {
           tokyonight_night = {
@@ -167,18 +173,19 @@ in
         enable = true;
         settings = {
           gui = {
-            skipDiscardChangeWarning = true;
+            autoFetch = false;
+            commitAuthorShortLength = 2;
             commitHashLength = 4;
             showDivergenceFromBaseBranch = "arrowAndNumber";
-            commitAuthorShortLength = 2;
+            skipDiscardChangeWarning = true;
             spinner = {
               frames = [
-                "\\uee06"
-                "\\uee07"
-                "\\uee08"
-                "\\uee09"
-                "\\uee0A"
-                "\\uee0B"
+                "\uee06"
+                "\uee07"
+                "\uee08"
+                "\uee09"
+                "\uee0A"
+                "\uee0B"
               ];
             };
             nerdFontsVersion = 3;
