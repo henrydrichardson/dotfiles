@@ -23,8 +23,32 @@ local function create_temporary_lsp_log_file()
   end
 end
 
+local function delete_log_file_if_exceeds_size(file_path, size_threshold_gb)
+  local size_threshold_bytes = size_threshold_gb * 1024 * 1024 * 1024
+  local file = io.open(file_path, "rb")
+
+  if file then
+    local file_size = file:seek("end")
+    file:close()
+
+    if file_size > size_threshold_bytes then
+      local success, err = os.remove(file_path)
+      if success then
+        vim.notify("Log file deleted: " .. file_path, vim.log.levels.INFO)
+      else
+        vim.notify("Failed to delete log file: " .. err, vim.log.levels.ERROR)
+      end
+    end
+  else
+    vim.notify("Could not open file: " .. file_path, vim.log.levels.ERROR)
+  end
+end
+
 vim.api.nvim_create_autocmd("VimEnter", {
-  callback = create_temporary_lsp_log_file,
+  callback = function()
+    delete_log_file_if_exceeds_size("/tmp/neovim/lsp.log", 2) -- Example: 1 GB threshold
+    create_temporary_lsp_log_file()
+  end,
 })
 
 -- bootstrap lazy.nvim, LazyVim and your plugins
