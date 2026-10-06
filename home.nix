@@ -6,7 +6,6 @@
 }:
 
 let
-  pkgs2505 = import <nixpkgs-25.05> { };
   localConfig = if builtins.pathExists ./local.nix then import ./local.nix else { };
 in
 {
@@ -22,7 +21,7 @@ in
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "26.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -58,7 +57,7 @@ in
     lua5_1 # Used by Neovim
     luarocks # Used by Neovim
     nerd-fonts.fira-code
-    nixfmt-rfc-style
+    nixfmt
     nodejs_24 # Used by Neovim - Mason.
     pre-commit
     tectonic # Used by Neovim - Snacks
@@ -131,13 +130,6 @@ in
         config = {
           theme = "tokyonight_night";
         };
-        extraPackages = with pkgs2505.bat-extras; [
-          batdiff
-          batman
-          batgrep
-          batwatch
-          batpipe
-        ];
         themes = {
           tokyonight_night = {
             src = tokyonight;
@@ -168,6 +160,9 @@ in
         defaultEditor = true;
         vimAlias = true;
         vimdiffAlias = true;
+        sideloadInitLua = true;
+        withRuby = true;
+        withPython3 = true;
       };
       lazygit = {
         enable = true;
